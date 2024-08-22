@@ -1,1 +1,2 @@
-export { inter } from "./fonts";
+// fonts
+export { inter, titleFont } from "./fonts";
