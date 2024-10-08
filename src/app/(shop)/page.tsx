@@ -1,7 +1,11 @@
-export default function ShopPage() {
+import React from "react";
+
+import { Title } from "@/components";
+
+export default function HomePage() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    <>
+      <Title title="Store" subtitle="All products" />
+    </>
   );
 }
