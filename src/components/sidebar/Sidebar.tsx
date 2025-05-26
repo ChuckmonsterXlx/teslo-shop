@@ -12,25 +12,42 @@ import {
   IoShirtOutline,
   IoTicketOutline,
 } from "react-icons/io5";
+import clsx from "clsx";
+import { useUIStore } from "@/store";
 
 export const Sidebar = () => {
+  const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
+  const closeSideMenu = useUIStore((state) => state.closeSideMenu);
+
   return (
     <div>
       {/* Background black */}
-      <div className="fixed top-0 left-0 z-10 w-screen h-screen bg-black opacity-30"></div>
+      {isSideMenuOpen && (
+        <div className="fixed top-0 left-0 z-10 w-screen h-screen bg-black opacity-30"></div>
+      )}
 
       {/* Blur */}
-      <div className="fixed top-0 left-0 z-10 w-screen h-screen fade-in backdrop-filter backdrop-blur-sm"></div>
+      {isSideMenuOpen && (
+        <div
+          onClick={closeSideMenu}
+          className="fixed top-0 left-0 z-10 w-screen h-screen fade-in backdrop-filter backdrop-blur-sm"
+        ></div>
+      )}
 
       {/* Sidemenu */}
       <nav
         // todo: slide effect
-        className="fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300"
+        className={clsx(
+          "fixed p-5 right-0 top-0 w-[500px] h-screen bg-white z-20 shadow-2xl transform transition-all duration-300",
+          {
+            "translate-x-full": !isSideMenuOpen,
+          }
+        )}
       >
         <IoCloseOutline
           size={50}
           className="absolute cursor-pointer top-5 right-5"
-          onClick={() => console.log("close")}
+          onClick={closeSideMenu}
         />
 
         {/* Input */}
