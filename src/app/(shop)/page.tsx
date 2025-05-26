@@ -1,7 +1,16 @@
-export default function ShopPage() {
+import React from "react";
+
+import { ProductGrid, Title } from "@/components";
+import { initialData } from "@/seed/seed";
+
+const products = initialData.products;
+
+export default function HomePage() {
   return (
-    <div>
-      <h1>Hello World!</h1>
-    </div>
+    <>
+      <Title title="Store" subtitle="All products" />
+
+      <ProductGrid products={products} />
+    </>
   );
 }
