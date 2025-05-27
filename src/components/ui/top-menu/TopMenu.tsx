@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
-
 import { titleFont } from "@/config";
 import { useUIStore } from "@/store";
 
@@ -37,7 +36,7 @@ export const TopMenu = () => {
 
         <Link
           className="p-2 m-2 transition-all rounded-md hover:bg-gray-100"
-          href={"/category/kids"}
+          href={"/category/kid"}
         >
           Kids
         </Link>
